@@ -1,16 +1,16 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Android Build
+name: Build
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
- # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -40,25 +40,27 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@v1.1.5
         with:
-          haxe-version: 4.2.5
+          haxe-version: 4.2.2
 
       - name: Install Haxelib
         run: |
-          haxelib setup /home/runner/haxelib
+          haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null
-          haxelib install lime 7.9.0
-          haxelib install newgrounds 1.3.0
-          haxelib install openfl 9.1.0
-          haxelib --never install flixel 4.11.0
-          haxelib run lime setup flixel
-          haxelib install flixel-tools
-          haxelib install flixel-ui
+          haxelib install lime 7.9.0 --quiet
+          haxelib install openfl 9.1.0 --quiet
+          haxelib --never install flixel 4.9.0 --quiet
+          haxelib run lime setup --quiet
           haxelib install hscript
-          haxelib --quiet git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
-          haxelib --quiet git hxCodec https://github.com/polybiusproxy/hxCodec
-          haxelib git flixel-addons https://github.com/ninjamuffin99/flixel-addons
-          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit.git
-          haxelib git extension-webview https://github.com/HaxeExtension/extension-webview
+          haxelib install flixel-tools 1.5.1 --quiet
+          haxelib install flixel-ui 2.3.3 --quiet
+          haxelib install hscript --quiet
+          haxelib install flixel-addons 2.10.0 --quiet
+          haxelib git faxe https://github.com/uhrobots/faxe --quiet
+          haxelib git polymod https://github.com/larsiusprime/polymod --quiet
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc --quiet
+          haxelib git extension-webm https://github.com/Sirox228/extension-webm --quiet
+          haxelib git linc_luajit https://github.com/Daninnocent/linc_luajit.git --quiet
+          haxelib install actuate
           haxelib list
 
       - name: Create Version Tag
@@ -71,11 +73,8 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
-          haxelib set lime 7.9.0 -y
-          haxelib set openfl 9.1.0 -y
-          haxelib set flixel 4.11.0 -y
-          haxelib set newgrounds 1.3.0 -y
-          haxelib list
+          haxelib set lime 7.9.0
+          haxelib set openfl 9.1.0
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
@@ -85,5 +84,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Qt Android Build
+          name: androidBuild
           path: export/release/android/bin/app/build/outputs/apk/debug
