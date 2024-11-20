@@ -1,0 +1,1 @@
+value 1: power of health drain

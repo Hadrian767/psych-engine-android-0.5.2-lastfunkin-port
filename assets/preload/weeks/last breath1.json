@@ -1,0 +1,48 @@
+{
+	"storyName": "Last PUN",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"songs": [
+		[
+			"beautiful-day",
+			"sans",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"this-is-not-funny",
+			"sansp2",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"my-last-breath",
+			"sansp3",
+			[
+				40,
+				40,
+				60
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "LB"
+}

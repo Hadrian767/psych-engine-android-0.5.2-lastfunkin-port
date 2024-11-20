@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-34,
+				-14
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "sansp2 baixo"
+		},
+		{
+			"offsets": [
+				-33,
+				72
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "sansp2 cima"
+		},
+		{
+			"offsets": [
+				21,
+				-16
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "sansp2 esquerda"
+		},
+		{
+			"offsets": [
+				-64,
+				7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "sansp2 direita"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-35,
+				10
+			],
+			"anim": "idle",
+			"fps": 0,
+			"name": "sansp2 idle",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/sansp2",
+	"position": [
+		330,
+		-90
+	],
+	"healthicon": "sansp2",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		-190,
+		-60
+	],
+	"sing_duration": 6.1,
+	"scale": 1.4
+}
